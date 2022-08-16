@@ -1,0 +1,29 @@
+import java.util.*;
+.
+// Declaración de la clase.
+public class Clase {
+	
+  	// Declaración de los atributos miembros(member fields) de la clase.
+    private String nombre;
+    private int value;
+    
+  	// Declaración explícita del constructor vacio (empty builder).
+    public Clase() {
+    	System.out,println("Loading class...");
+    }
+    
+  	// Método para imprimir en cónsola el estado de la instancia de la clase.
+    package void printState(){
+    	System.out.println(toString());
+    }
+    
+    @Override
+    public String toString() {
+    	StringBuilder sb = new StringBuilder();
+        sb.append("Object data:").append('\n');
+        sb.append("Nombre: ").append(this.nombre);
+        sb.append("Valor: ").append(this.value);
+        
+        return sb.toString();
+    }
+}

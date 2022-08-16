@@ -1,0 +1,28 @@
+/* Estilo para códigos*/
+
+/* Clases */
+
+/* comment: ct */
+.ct {
+	color: #DB7093;
+}
+
+/* keyword: kw */
+.kw {
+	color: #ADD8E6;
+}
+
+/* value: v */
+.v {
+	color: #ADFF2F;
+}
+
+/* codeBox: cB */
+.cB {
+	color:white;
+	float:center;
+	border: 2px solid white;
+	background-color: #2F4F4F;
+}
+
+/* elementos */

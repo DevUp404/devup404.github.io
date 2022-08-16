@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="description" content="Sobre elemento de HTML">
+	<meta name="author" content="Elias">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style/style_one.css">
+	<link rel="stylesheet" href="style/code.css">
+	<title>HTML Drag and Drop API</title>
+	<style>
+		#div1, #div2 {
+			float: left;
+			width: 100px;
+			height: 35px;
+			margin: 10px;
+			padding: 10px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+
+<a href="index.html">Home.</a>/<a href="apislist.html">Volver.</a>/<a href="geolocation_API.html">Anterior.</a> - <a href="web_storage_API.html">Siguiente.</a>
+
+<hr>
+	<h1>HTML Drag and Drop API</h1>
+
+<hr>
+	<p>In HTML, any element can be dragged and dropped.</p>
+
+<hr>
+	<h2>Drag and Drop</h2>
+	
+	<p>
+		Drag and drop is a very common feature. It is when you "grab" an object 
+		and drag it to a different location.
+	</p>
+
+<hr>
+	<h2>HTML Drag and Drop Example</h2>
+	
+	<p>The example below is a simple drag and drop example:</p>
+	
+	<div style="background-color: white; border: 2px solid black;">
+		<script>
+			function allowDrop(ev) {
+				ev.preventDefault();
+			}
+
+			function drag(ev) {
+				ev.dataTransfer.setData("text", ev.target.id);
+			}
+
+			function drop(ev) {
+				ev.preventDefault();
+				var data = ev.dataTransfer.getData("text");
+				ev.target.appendChild(document.getElementById(data));
+			}
+		</script>
+		<p>Drag the W3Schools image into the rectangle:</p>
+		<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 350px; height: 70px; padding: 10px; border: 1px solid #aaaaaa;"></div>
+		<br>
+		<img id="drag1" src="media/images/img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
+	</div>
+
+<hr>
+	<p>It might seem complicated, but lets go through all the different parts of a drag and drop event.</p>
+
+<hr>
+	<h2>Make an Element Draggable</h2>
+	
+	<p draggable="true">First of all: To make an element draggable, set the <mark>draggable</mark> attribute to true:</p>
+	<div class="cB"><code draggable="true">&lt;img draggable="true"&gt;</code></div>
+
+<hr>
+	<h2>What to Drag - ondragstart and setData()</h2>
+	
+	<p>
+		Then, specify what should happen when the element is dragged.<br>
+		<br>
+		In the example above, the <mark>ondragstart</mark> attribute calls a function, 
+		<mark>drag(event)</mark>, that specifies what data to be dragged.<br>
+		<br>
+		The <mark>dataTransfer.setData()</mark> method sets the data type and the 
+		value of the dragged data:<br>
+		<br>
+		<code>function drag(ev) {	ev.dataTransfer.setData("text", ev.target.id);	}</code><br>
+		<br>
+		In this case, the data type is "text" and the value is the id of the draggable element ("drag1").
+	</p>
+<hr>
+	<h2>Where to Drop - ondragover</h2>
+	
+	<p>
+		The <mark>ondragover</mark> event specifies where the dragged data can be dropped.<br>
+		<br>
+		By default, data/elements cannot be dropped in other elements. To allow a drop, 
+		we must prevent the default handling of the element.<br>
+		<br>
+		This is done by calling the <mark>event.preventDefault()</mark> method for the ondragover event:<br>
+		<br>
+		<code>event.preventDefault()</code>
+	</p>
+	
+<hr>
+	<h2>Do the Drop - ondrop</h2>
+	
+	<p>
+		When the dragged data is dropped, a drop event occurs.<br>
+		<br>
+		In the example above, the ondrop attribute calls a function, drop(event):<br>
+		<br>
+	</p>
+
+	<div class="cB">
+<pre><code class="kw">function</code> drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData(<code class="v">"text"</code>);
+    ev.target.appendChild(document.getElementById(data));
+  }
+</pre>
+	</div>
+	
+	<ul>
+		<li>Call preventDefault() to prevent the browser default <br>
+			handling of the data (default is open as link on drop)</li><hr>
+		<li>Get the dragged data with the dataTransfer.getData() <br>
+			method. This method will return any data that was set to <br>
+			the same type in the setData() method</li><hr>
+		<li>The dragged data is the id of the dragged element ("drag1")</li><hr>
+		<li>Append the dragged element into the drop element</li>
+	</ul>
+	
+<hr>
+	<h2>An Example</h2>
+	
+	<p>How to drag (and drop) an image back and forth between two <em>div</em> elements:</p>
+	
+	<section style="background-color: pink">
+		<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+			<img src="media/images/img_w3slogo.gif" draggable="true" ondragstart="drag(event)" id="drag2" width="88" height="31">
+		</div>
+		<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	</section>
+	
+	<script>
+		function allowDrop(ev) {
+		  ev.preventDefault();
+		}
+
+		function drag(ev) {
+		  ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+		  ev.preventDefault();
+		  var data = ev.dataTransfer.getData("text");
+		  ev.target.appendChild(document.getElementById(data));
+		}
+	</script>
+
+<hr>
+<a href="index.html">Home.</a>/<a href="apislist.html">Volver.</a>/<a href="geolocation_API.html">Anterior.</a> - <a href="web_storage_API.html">Siguiente.</a>
+
+</body>
+</html>

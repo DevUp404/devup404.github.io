@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="description" content="Sobre elemento de HTML">
+	<meta name="author" content="Elias">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../style/code.css">
+	<title>Codigo 7</title>
+</head>
+<body style="background-color: darkgrey;">
+<!-- 
+COMENTARIO: <code style="color: #DB7093;">
+KEYWORD: <code style="color: #ADD8E6;">
+VALUE: <code style="color: #ADFF2F;">
+-->
+
+	<div class="cB">
+<pre><code class="kw">  var</code> i = <code class="v">0</code>;
+
+<code class="kw">  function</code> timedCount() {
+    i = i + <code class="v">1</code>;
+    postMessage(i);
+    setTimeout(<code class="v">"timedCount()"</code>,<code class="v">500</code>);
+  }
+
+  timedCount();
+</pre>
+	</div>
+
+<!--<hr>
+	Example explained: -->
+
+<hr>
+<a href="../web_workers_API.html">Volver.</a>
+
+</body>
+</html>

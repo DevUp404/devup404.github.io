@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="description" content="Sobre elemento de HTML">
+	<meta name="author" content="Elias">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style/style_one.css">
+	<link rel="stylesheet" href="../../style/game.css">
+	<link rel="icon" type="image/x-icon" href="../../media/images/joystick.png">
+	<title>Tuti Fruti</title>
+</head>
+<body style="border: 2px solid black;">
+	<h1>Tuti Fruti - Basta</h1>
+
+<hr>
+	<h2 id="jugar">Jugar</h2>
+
+<!--	<form>
+		<div>
+			<div style="float: left;">
+				<label for="texNombre">Nombre:</label><br>
+				<input type="text" name="nombreLetra" id="texNombre" value="nombre_letra"></input><br>
+			</div>
+			<div style="float: left;">
+				<label for="texColor">Color:</label><br>
+				<input type="text" name="colorLetra" id="texColor" value="color_letra"></input><br>
+			</div>
+			<div style="float: left;">
+				<label for="texAnimal">Animal:</label><br>
+				<input type="text" name="animalLetra" id="texAnimal" value="animal_letra"></input><br>
+			</div>
+			<div style="float: left;">
+				<label for="texObjeto">Objeto:</label><br>
+				<input type="text" name="objetoLetra" id="texObjeto" value="objeto_letra"></input><br>
+			</div>
+			<div style="float: left;">
+				<label for="texPais">Pais:</label><br>
+				<input type="text" name="paisLetra" id="texPais" value="pais_letra"></input><br>
+			</div>
+		</div>
+		<div class="gameBox"><button type="button" onclick="a()" style="clear: left;">Click Me!</button></div>		
+	</form> -->
+
+<hr style="clear: left;">
+	<div class="gameBox"><button onclick="terminar()" >¡Basta-!</button></div>
+	
+<script>
+	var trA = "<tr>";
+	var trB = "</tr>";
+	var tdA = "<td>";	
+	var tdB = "</td>";
+
+	function terminar() {
+		var nuevaFila = trA + tdA + tdB  + trB;
+		var a = document.getElementById("inGameLetter");
+		var b = document.getElementById("puntos").innerHTML;
+		
+		document.getElementById("start").innerHTML += createRow(
+			createCell(a.innerHTML),
+			createCell(getValor("texNombre")),
+			createCell(getValor("texAnimal")),
+			createCell(getValor("texObjeto")),
+			createCell(getValor("texPais")),
+			createCell(getValor("texColor")),
+			createCell(b),
+		);
+	}
+	
+	function createRow(cell1, cell2, cell3, cell4, cell5, cell6, cell7) {
+		return "<tr>" + cell1 + cell2 + cell3 + cell4 + cell5 + cell6 + cell7 + "</tr>";
+	}
+	
+	function createCell(cellContent) {
+		return "<td>" + cellContent + "</td>";
+	}
+	
+	function getValor(id) {
+		return document.getElementById(id).value;
+	}
+	
+	// Deprecate soon!
+	function changeWidth(){
+		var a = document.getElementById("texNombre");
+		var b = document.getElementById("th2");
+		var c;
+		alert("Tabla: " + b.style.width + ", Forma: " + a.style.width);
+		b.innerHTML = "d      150px      d";
+		a.style.width = "150px";
+		alert(b.style.width); alert(a.style.width);
+	}
+	
+	var basta = "false";// Definir boolean para siguiente función.
+	
+	function getRandomLetter() {
+		const letras = [
+			'A', 'B', 'C', 'D', 'E', 
+			'F', 'G', 'H', 'I', 'J', 
+			'K', 'L', 'M', 'N', 'Ñ',
+			'O', 'P', 'Q', 'R', 'S', 
+			'T', 'U', 'V','W', 'X', 'Y', 'Z'
+		];
+		
+		var indice = 0;
+		for(var i = 0; i < letras.length; i++) {
+		document.getElementById("inGameLetter").innerHTML = letras[indice];
+			if(basta == "true") {
+				break;
+			}
+			alert(indice);
+			if(indice == 27) {
+				basta = "true";
+				indice = 3;
+			}
+			indice++;
+		}
+		alert(indice);
+		alert("La letra es: " + letras[indice]);
+	}
+	
+	function verificar(index) {
+		if(basta == "true") {
+			return index;
+		}
+	}
+</script>
+
+<table id="start" class="gameTable">
+	<tr>
+		<th>Letra</th>
+		<th>Nombre</th>
+		<th>Animal</th>
+		<th>Objeto</th>
+		<th>País</th>
+		<th>Color</th>
+		<th class="point">Puntos</th>
+	</tr>
+	<tr>
+		
+		<!-- <td><input type="text" name="nombreLetra" id="texNombre" value="" style="width: 100px;"></input></td>
+		<td><input type="text" name="animalLetra" id="texAnimal" value="" style="width: 100px;"></input></td>
+		<td><input type="text" name="objetoLetra" id="texObjeto" value="" style="width: 100px;"></input></td>
+		<td><input type="text" name="paisLetra" id="texPais" value="" style="width: 100px;"></input></td>
+		<td><input type="text" name="colorLetra" id="texColor" value="" style="width: 100px;"></input></td>
+-->		<td class="point" id="puntos">--</td>
+	</tr>
+</table>
+
+<hr>
+<p onmouseover="ajustar()" id="inGameLetter">--</p>
+
+	<div id="box" class="invisible">
+		
+		<h2 id="header2" style="width: 65%; border-collapse: collapse;">Pruebas de distribución</h2>
+		
+		<br>
+		<div id="div1" class="gameBox" style="width: 190px;">
+			<label for="texNombre">Nombre:</label>
+			<input class="derecha" type="text" name="nombreLetra" id="texNombre" style="width: 100px;"></input>
+		</div>
+		<div id="div2" class="gameBox" style="width: 190px;">
+			<label for="texNombre">Animal:</label>
+			<input class="derecha" type="text" name="animalLetra" id="texAnimal" style="width: 100px;"></input>
+		</div>
+		<div id="div3" class="gameBox" style="width: 190px;">
+			<label for="texNombre">Objeto:</label>
+			<input class="derecha" type="text" name="objetoLetra" id="texObjeto" style="width: 100px;"></input>
+		</div>
+		<div id="div4" class="gameBox" style="width: 190px;">
+			<label for="texNombre">País:</label>
+			<input class="derecha" type="text" name="paisLetra" id="texPais" style="width: 100px;"></input>
+		</div>
+		<div id="div5" class="gameBox" style="width: 190px;">
+			<label for="texNombre">Color:</label>
+			<input class="derecha" type="text" name="colorLetra" id="texColor" style="width: 100px;"></input>
+		</div>
+		<br>
+		<button onclick="getRandomLetter()">:p</button>
+	</div>
+	<p>dfsdfsdfs</p>
+	<script>
+			document.getElementById("box").style.width = 
+			document.getElementById("header2").style.width;
+			
+			function ajustar() {
+				var a = document.getElementById("box");
+				var b = document.getElementById("header2");
+				alert(a.style.width);
+				alert(":p");
+			}
+	</script>
+
+<div></div>
+	<!-- <h2>Reglas:</h2> -->
+
+</body>
+</html>

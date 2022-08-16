@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<!--
+The HTML <head> element is a container for the following elements: <title>, <style>, <meta>, <link>, <script>, and <base>..
+ -->
+<head>
+<meta charset="UTF-8">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="description" content="Free Web tutorials">
+<meta name="author" content="John Doe">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi sitio de prueba</title>
+<link rel="stylesheet" href="style/style_one.css">
+</head>
+<body>
+<p><strong>Home</strong><a href="../HTML/eje1.html">Siguiente.</a>/<a href="canvasUno.html">Canvas</a>/<a href="multimediaIntro.html">About multimedia.</a>/<a href="apislist.html">HTML APIs</a>/<a href="pruebas/test.html">Pruebas</a>/<a href="books.html" target="_blank">Ir a la biblioteca</a>/<a href="juegos.html">&#x1F579;</a></p>
+<hr/>
+
+<a href="pagina_dos.html">Siguiente.</a>
+<hr>
+<p>Ingrese los datos en la forma para continuar.</p>
+<form>
+	
+	<label for="texid">Ingrese su nombre:</label><br>
+	<input type="text" name="tex" id="texid" value="nombre de usuario"></input><br>
+	
+	<label for="checkid">Marque la casilla si esta de acuerdo.</label><br>
+	<input type="checkbox" name="check" id="checkid" value="Estoy de acuerdo."><br>
+	
+	<label for="subid">Presione "submit" si ha terminado el formulario</label><br>
+	<input type="submit" name="sub" id="subid" value="submit"><br>
+	
+	<label for="butid">Presione el boton si esta aburrido</label><br>
+	<input type="button" name="but" id="butid" value="This button."><br>
+</form>
+
+<h2>Radio buttons</h2>
+
+<p>Seleccione la opcion de su preferencia:</p>
+
+<form>
+	<input type="radio" id="primera" name="choice" value="primera opcion">
+	<label for="primera">Primera.</label><br>
+	<input type="radio" id="segunda"  name="choice" value="segunda opcion">
+	<label for="segunda">Segunda.</label><br>
+	<input type="radio" id="tercera"  name="choice" value="tercera opcion">
+	<label for="tercera">Tercera.</label><br>
+</form>
+
+<h2>Checkbox buttons</h2>
+
+<p>Choose your favorite vehicle</p>
+
+<form>
+	<input type="checkbox" id="car" name="caja1" value="Car.">
+	<label for="car">Me gustan los autos</label><br>
+	
+	<input type="checkbox" id="motorbike" name="caja2" value="Motorbike.">
+	<label for="motorbike">Me gustan las motos</label><br>
+	
+	<input type="checkbox" id="bike" name="caja3" value="Bike.">
+	<label for="bike">Me gustan las bicicletas</label><br>
+</form>
+
+<form action="redic.html" target="_blank" method="get">
+	<input type="submit" id="sub" name="subit" value="submitar">
+	<label for="sub">Submit.</label><br>
+</form>
+
+<hr style="color:red;">
+<br style="background-color:grey;">
+
+<h2>Login</h2>
+
+<form action="redic.html" target="_blank" autocomplete="on" novalidate="novalidate">
+<label for="a">Nombre de usuario</label><br>
+	<input type="text" id="a" name="nombre" value="nombre_de_usuario"><br>
+	
+	<label for="b">Contraseña de usuario</label><br>
+	<input type="password" id="b" name="contrasena" value="contrasena_de_usuario"><br>
+	
+	<input type="submit" id="c" name="sub" value="Iniciar sesion"><br>
+	<label for="c"><label><br>
+</form>
+
+<form action="redic.html" target="_blank">
+	<p>Seleccione su fecha de nacimiento:</p><br>
+	<label for="dia"></label>
+	<select id="dia" name="dia" size="1">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+		<option value="13">13</option>
+		<option value="14">14</option>
+		<option value="15">15</option>
+		<option value="16">16</option>
+		<option value="17">17</option>
+		<option value="18">18</option>
+		<option value="19">19</option>
+		<option value="20">20</option>
+		<option value="21">21</option>
+		<option value="22">22</option>
+		<option value="23">23</option>
+		<option value="24">24</option>
+		<option value="25">25</option>
+		<option value="25">26</option>
+		<option value="27">27</option>
+		<option value="28">28</option>
+		<option value="29">29</option>
+		<option value="30">30</option>
+		<option value="31">31</option>
+	</select>
+	<label for="mes"></label>
+	<select id="mes" name="mes" size="1">
+		<option value="enero">enero</option>
+		<option value="febrero">febrero</option>
+		<option value="marzo">marzo</option>
+		<option value="abril">abril</option>
+		<option value="mayo">mayo</option>
+		<option value="junio">junio</option>
+		<option value="julio">julio</option>
+		<option value="agosto">agosto</option>
+		<option value="septiembre">septiembre</option>
+		<option value="octubre">octubre</option>
+		<option value="noviembre">noviembre</option>
+		<option value="diciembre">diciembre</option>
+	</select>
+	<label for="año"></label>
+	<select id="año" name="año" size="1">
+		<option value="2004">2004</option>
+		<option value="2003">2003</option>
+		<option value="2002">2002</option>
+		<option value="2001">2001</option>
+		<option value="2000">2000</option>
+		<option value="1999">1999</option>
+		<option value="1998">1998</option>
+		<option value="1997">1997</option>
+		<option value="1996">1996</option>
+		<option value="1995">1995</option>
+		<option value="1994">1994</option>
+		<option value="1993">1993</option>
+		<option value="1992">1992</option>
+		<option value="1991">1991</option>
+		<option value="1990">1990</option>
+	</select><br>
+	<label for="sub2">Presione el boton para continuar</label>
+	<input type="submit" id="sub2" name="nacimiento" value="Continuar">
+</form>
+<hr>
+<h1>The optgroup element</h1>
+
+<p>The optgroup tag is used to group related options in a drop-down list:</p>
+
+<div>
+<form action="redic.html" style="background-color:blue;width:30%;">
+  <label for="cars">Choose a car:</label>
+  <select name="cars" id="cars">
+    <optgroup label="Swedish Cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+    </optgroup>
+    <optgroup label="German Cars">
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </optgroup>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+</div>
+
+<hr>
+<h2>Allow Multiple Selections</h2>
+
+<p>Use the multiple attribute to allow the user to select more than one value.</p>
+
+<form action="redic.html" target="_blank">
+  <label for="cars">Choose a car:</label>
+  <select id="cars" name="cars" size="4" multiple>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+  </select><br><br>
+  <input type="submit">
+</form>
+<hr>
+<h2>The textarea element</h2>
+<form action="redic.html" target="_blank">
+<textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+<button type="button" onclick="alert('Hello World!')">Click Me!</button>
+</form>
+<hr>
+<h2>The fieldset element</h2>
+<form action="redic.html">
+  <fieldset style="width:50px;">
+    <legend>Personalia:</legend>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+<hr>
+<h2>The datalist element</h2>
+<form>
+	<input list="jugos">
+	<datalist id="jugos">
+	<option value="Naranja">
+	<option value="Multifruta">
+	<option value="Banana">
+	<option value="Mango">
+	<option value="Limón">
+	<option value="Frutilla">
+	<option value="Durazno">
+	</datalist>
+</form>
+<hr>
+<h2>The output element</h2>
+<form action="redic.html" oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+	0 <input type="range"  id="a" name="a" value="50"> 100
+	<input type="number" id="b" name="b" value="50"> =
+	<output id="x" name="x" for="a b"></output><br>
+	<input type="submit" value="calcular">
+</form>
+<hr>
+</body>
+</html>

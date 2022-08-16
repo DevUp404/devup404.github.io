@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="description" content="Sobre elemento de HTML">
+	<meta name="author" content="Elias">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style/style_one.css">
+	<link rel="stylesheet" href="../../style/game.css">
+	<link rel="icon" type="image/x-icon" href="../../media/images/joystick.png">
+	<title>Code Testing &#x1F579;</title>
+</head>
+<body>
+<a href="../../index.html">Home</a>/<a href="../../juegos.html">Juegos</a>/
+
+<hr>
+	<h1>Test &#x1F579;</h1>
+
+<hr>
+	<h2>Descripción del código:</h2>
+	
+	<p>El siguiente programa iterará una serie de letras. Cuando el usuario presione el botón se añadirá la letra del momento a la lista.</p>
+	
+	<div><button onclick="code.js">Push!</button></div>
+	<p id="1"></p>
+	<script>
+		function showTime() {
+			var time = new Date();
+			console.log(time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds());
+			document.getElementById("1").innerHTML = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+		}
+	</script>
+	<ul>
+		<li></li>
+		<li></li>
+	</ul>
+
+<hr>
+<!--	<iframe src="https://pastebin.pl/view/embed/cfe96d34" style="border: 2px solid grey; width:100%; height: 500px;"></iframe>	-->
+
+</body>
+</html>

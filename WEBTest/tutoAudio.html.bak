@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="description" content="Sobre elemento de HTML">
+	<meta name="author" content="Elias">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style/style_one.css">
+	<title>HTML audio</title>
+</head>
+<body>
+<a href="multimediaIntro.html">Volver.</a>
+
+<hr>
+
+	<p>The HTML <em>audio</em> element is used to play an audio file on a web page.</p>
+	
+<hr>
+	
+	<h2>The HTML <em>audio</em> element</h2>
+	
+	<p>To play an audio file in HTML, use the <em>audio</em> element:</p>
+	
+	<div style="background-color:white; border: 2px solid grey;">
+		<code>
+			<pre style="border: 2px solid black;">
+    &lt;audio controls&gt;
+        &lt;source src="horse.ogg" type="audio/ogg"&gt;
+        &lt;source src="horse.mp3" type="audio/mpeg"&gt;
+        Your browser does not support the audio element.
+    &lt;/audio&gt;
+			</pre>
+		</code>
+		<audio controls>
+			<source src="media/audio/horse.ogv" type="audio/ogg">
+			<source src="horse.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+	</div>
+	
+<hr>
+	
+	<h2>HTML Audio - How It Works</h2>
+	
+	<p>
+		The <em>controls</em> attribute adds audio controls, like play, pause, and volume.<br><br>
+		
+		The <em>source</em> element allows you to specify alternative audio files 
+		which the browser may choose from. The browser will use the first recognized 
+		format.<br><br>
+		
+		The text between the &lt;audio&lt; and &lt;/audio&gt; tags will only be displayed in 
+		browsers that do not support the <em>audio</em> element.<br>
+	</p>
+	
+<hr>
+	
+	<h2>HTML audio Autoplay</h2>
+	
+	<p>
+		To start an audio file automatically, use the autoplay attribute<br>
+		Add muted after autoplay to let your audio file start playing automatically (but muted)
+	</p>
+	
+	<h2>HTML audio formats</h2>
+
+<p>There are three supported audio formats: MP3, WAV, and OGG. The browser support for the different formats is:</p>
+<table>
+	<tr>
+		<th>Browser</th>
+		<th>MP3</th>
+		<th>WAV</th>
+		<th>OGG</th>
+	<tr>
+	<tr>
+		<td>Edge</td>
+		<td>YES</td>
+		<td>YES*</td>
+		<td>YES*</td>
+	<tr>
+	<tr>
+		<td>Chrome</td>
+		<td>YES</td>
+		<td>YES</td>
+		<td>YES</td>
+	<tr>
+	<tr>
+		<td>Firefox</td>
+		<td>YES</td>
+		<td>YES</td>
+		<td>YES</td>
+	<tr>
+	<tr>
+		<td>Safari</td>
+		<td>YES</td>
+		<td>YES</td>
+		<td>NO</td>
+	<tr>
+	<tr>
+		<td>NO</td>
+		<td>YES</td>
+		<td>YES</td>
+		<td>YES</td>
+	<tr>
+</table>
+<p>*From Edge 79</p>
+<hr>
+
+<h2>HTML video-media types</h2>
+
+<table>
+	<tr>
+		<th>File Format</th>
+		<th>Media Type</th>
+	<tr>
+	<tr>
+		<td>MP3</td>
+		<td>audio/mpeg</td>
+	<tr>
+	<tr>
+		<td>OGG</td>
+		<td>audio/ogg</td>
+	<tr>
+	<tr>
+		<td>WAV</td>
+		<td>audio/wav</td>
+	<tr>
+</table>
+	
+</body>
+</html>
