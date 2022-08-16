@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="description" content="Sobre elemento de HTML">
+	<meta name="author" content="Elias">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style/style_one.css">
+	<title>HTML Web Storage API</title>
+	<style>
+	.codeBox {
+		float:center;
+		border: 2px solid white;
+		background-color: #2F4F4F;
+	}
+	.codeLine {
+		background-color: #2F4F4F;
+		color:white;
+	}
+	.com {
+	
+	}
+	.kw {
+	
+	}
+	.val {
+		background-color: #2F4F4F;
+		color: #ADFF2F;
+	}
+	</style>
+</head>
+<body>
+
+<a href="index.html">Home.</a>/<a href="apislist.html">Volver.</a>/<a href="drag_drop_API.html">Anterior.</a> - <a href="web_workers_API.html">Siguiente.</a>
+
+<hr>
+	<h1>HTML Web Storage API</h1>
+
+<hr>
+	<p>HTML web storage; better than cookies.</p>
+
+<hr>
+	<h2>What is HTML Web Storage?</h2>
+	
+	<p>
+	With web storage, web applications can store data locally within the user's 
+	browser.<br>
+	<br>
+	Before HTML5, application data had to be stored in cookies, included in 
+	every server request. Web storage is more secure, and large amounts of d
+	ata can be stored locally, without affecting website performance.<br>
+	<br>
+	Unlike cookies, the storage limit is far larger (at least 5MB) and information 
+	is never transferred to the server.<br>
+	<br>
+	Web storage is per origin (per domain and protocol). All pages, from one 
+	origin, can store and access the same data.
+	</p>
+
+<hr>
+	<h2>HTML Web Storage Objects</h2>
+	
+	<p>HTML web storage provides two objects for storing data on the client:</p>
+	
+	<ul>
+		<li><mark>window.localStorage</mark> - stores data with no expiration date</li>
+		<li><mark>window.sessionStorage</mark> - stores data for one session (data is lost when the browser tab is closed)</li>
+	</ul>
+	
+	<p>Before using web storage, check browser support for localStorage and sessionStorage: <a href="codes/code1.html">Ver código.</a></p>
+
+<hr>
+	<h2>The localStorage Object</h2>
+	
+	<p>
+	The localStorage object stores the data with no expiration date. The data will 
+	not be deleted when the browser is closed, and will be available the next day, 
+	week, or year.<br>
+	<br>
+	<a href="codes/code2.html">Example code.</a>
+	</p>
+	
+	<p>The example above could also be written like this: <a href="codes/code3.html">Ver codigo.</a></p>
+	
+	<p>The syntax for removing the "lastname" localStorage item is as follows:</p>
+	<div class="codeBox">
+		<pre class="codeLine">  <code class="codeLine">localStorage.removeItem(<code class="val">"lastname"</code>)</code></pre>
+	</div>
+	
+	<p>
+	<b>Note:</b> Name/value pairs are always stored as strings. Remember to convert 
+	them to another format when needed!<br>
+	<br>
+	The following example counts the number of times a user has clicked a button. In 
+	this code the value string is converted to a number to be able to 
+	increase the counter: <a href="codes/code4.html">Ver ejemplo.</a>
+	</p>
+
+<hr>
+	<h2>The sessionStorage Object</h2>
+	
+	<p>
+		The sessionStorage object is equal to the localStorage object, except 
+		that it stores the data for only one session. The data is deleted when 
+		the user closes the specific browser tab.<br>
+		<br>
+		The following example counts the number of times a user has clicked a 
+		button, in the current session: <a href="codes/code5.html">Ver codigo</a>
+	</p>
+		
+<hr>
+
+<a href="index.html">Home.</a>/<a href="apislist.html">Volver.</a>/<a href="drag_drop_API.html">Anterior.</a> - <a href="web_workers_API.html">Siguiente.</a>
+
+<hr>
+</body>
+</html><!-- Mi niña, no se preocupe que no está sola, luchemos juntos. Cubre mi espalda y yo la tuya ^^

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="description" content="Sobre elemento de HTML">
+	<meta name="author" content="Elias">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style/style_one.css">
+	<link rel="stylesheet" href="style/code.css">
+	<title>HTML Web Workers API</title>
+</head>
+<body>
+
+<header id="header">
+<a href="index.html">Home.</a>/<a href="apislist.html">Volver.</a>/<a href="web_storage_API.html">Anterior.</a> - <a href="SSE_API.html">Siguiente.</a>/<a href="#footer">Abajo.</a>
+<hr>
+</header>
+
+
+	<h1>HTML Web Workers API</h1>
+
+<hr style="color: #FF1493">
+	<p>A web worker is a JavaScript running in the background, without affecting 
+	the performance of the page.
+	</p>
+
+<hr>
+	<h2>What is a Web Worker?</h2>
+	
+	<p>
+		When executing scripts in an HTML page, the page becomes unresponsive 
+		until the script is finished.<br>
+		<br>
+		A web worker is a JavaScript that runs in the background, independently 
+		of other scripts, without affecting the performance of the page. You can 
+		continue to do whatever you want: clicking, selecting things, etc., while 
+		the web worker runs in the background.
+	</p>
+
+<hr>
+	<h2>HTML Web Workers Example</h2>
+	
+	<p>The example below creates a simple web worker that count numbers in the background:</p>
+
+	<div>
+		<p>Count numbers: <output id="result"></output></p>
+		<button onclick="startWorker()">Start Worker</button> 
+		<button onclick="stopWorker()">Stop Worker</button>
+
+		<script>
+			var w;
+			
+			function startWorker() {
+				if(typeof(Worker) !== "undefined") {
+					if(typeof(w) == "undefined") {
+						w = new Worker("demoworker.js");
+					}
+					w.onmessage = function(event) {
+						document.getElementById("result").innerHTML = event.data;
+					};
+				} else {
+					document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+				}
+			}
+
+			function stopWorker() { 
+				w.terminate();
+				w = undefined;
+			}
+		</script>
+	</div>
+
+<hr>
+	<h2>Check Web Worker Support</h2>
+	
+	<p>
+		Before creating a web worker, check whether the user's browser supports it:<br>
+		<a href="codes/code6.html">Go to code.</a>
+	</p>
+	
+<hr>
+	<h2>Create a Web Worker File</h2>
+	
+	<p>
+		Now, let's create our web worker in an external JavaScript.<br>
+		<br>
+		Here, we create a script that counts. The script is stored in 
+		the "demo_workers.js" file: <a href="codes/code7.html">Ver.</a><br>
+		<br>
+		The important part of the code above is the <mark>postMessage()</mark> 
+		method - which is used to post a message back to the HTML page.
+	</p>
+	
+	<p><b>Note:</b> Normally web workers are not used for such simple scripts, but for more CPU intensive tasks.</p>
+
+<hr>
+	<h2>Create a Web Worker Object</h2>
+	
+	<p>
+		Now that we have the web worker file, we need to call it from an HTML page.<br>
+		<br>
+		The following lines checks if the worker already exists, if not - it creates 
+		a new web worker object and runs the code in "demo_workers.js":<br>
+	</p>
+	
+	<div class="cB">
+<pre>  <code class="kw">if</code> (<code class="kw">typeof</code>(w) == <code class="v">"undefined"</code>) {
+    w = <code class="kw">new</code> Worker(<code class="v">"demo_workers.js"</code>);
+  }
+</pre>
+	</div>
+
+	<p>
+		Then we can send and receive messages from the web worker.<br>
+		<br>
+		Add an "onmessage" event listener to the web worker.
+	</p>
+	
+	<div class="cB">
+<pre>  w.onmessage = <code class="kw">function</code>(event){
+    document.getElementById(<code class="v">"result"</code> ).innerHTML = event.data;
+  };
+</pre>
+	</div>
+	
+	<p>
+		When the web worker posts a message, the code within the event listener 
+		is executed. The data from the web worker is stored in event.data.
+	</p>
+
+<hr>
+	<h2>Terminate a Web Worker</h2>
+	
+	<p>
+		When a web worker object is created, it will continue to listen for messages 
+		(even after the external script is finished) until it is terminated.<br>
+		<br>
+		To terminate a web worker, and free browser/computer resources, use the 
+		<mark>terminate()</mark> method:
+	</p>
+	
+	<div class="cB">
+		<code>w.terminate();</code>
+	</div>
+
+<hr>
+	<h2>Reuse the Web Worker</h2>
+	
+	<p>
+		If you set the worker variable to undefined, after it has been terminated, 
+		you can reuse the code:
+	</p>
+	
+	<div class="cB">
+		<code>w = undefined;</code>
+	</div>
+
+<hr>
+	<h2>Full Web Worker Example Code</h2>
+	
+	<p>
+	We have already seen the Worker code in the .js file. Below is the code for 
+	the HTML page:
+	</p>
+	
+	<div class="cB">
+		<code class="kw">dsfsdf</code>
+		<code class="v">dsfsdf</code>
+		<code class="ct">dsfsdf</code>
+<pre>
+<<code class="kw">!DOCTYPE</code> <code class="v">html</code>>
+<<code class="kw">html</code>>
+<<code class="kw">body</code>>
+
+<<code class="kw">p</code>>Count numbers: <output id="result"></output><<code class="kw">/p</code>>
+...
+
+It's a lot of code :'p
+<!-- <button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+
+<script>
+var w;
+
+function startWorker() {
+  if (typeof(Worker) !== "undefined") {
+    if (typeof(w) == "undefined") {
+      w = new Worker("demo_workers.js");
+    }
+    w.onmessage = function(event) {
+      document.getElementById("result").innerHTML = event.data;
+    };
+  } else {
+    document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+  }
+}
+
+function stopWorker() {
+  w.terminate();
+  w = undefined;
+}
+</script>
+
+</body>
+</html> -->
+</pre>
+	</div>
+	
+<hr>
+	<h2>Web Workers and the DOM</h2>
+	
+	<p>Since web workers are in external files, they do not have access to the following JavaScript objects:</p>
+
+	<ul>
+		<li>The window object</li>
+		<li>The document object</li>
+		<li>The parent object</li>
+	</ul>
+
+<footer id="footer">
+<hr>
+<a href="index.html">Home.</a>/<a href="apislist.html">Volver.</a>/<a href="web_storage_API.html">Anterior.</a> - <a href="SSE_API.html">Siguiente.</a>/<a href="#header">Arriba</a>
+<hr>
+</footer>
+
+</body>
+</html>
