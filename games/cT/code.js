@@ -10,5 +10,6 @@ function charSelector() {
   for(var i = 0; i < letras.length) {
     postMessage(letras[i]);
   }
+  charSelector();
 }
 charSelector();
