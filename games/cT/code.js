@@ -7,7 +7,7 @@ const letras = [
 		];
 
 function charSelector() {
-  for(var i = 0; i < letras.length) {
+  for(var i = 0; i < letras.length; i++) {
     postMessage(letras[i]);
   }
   charSelector();
