@@ -1,5 +1,0 @@
-addEventListener("message", recibido);
-function recibido(evento) {
-	var respuesta = "Su nombre es " + evento.data;
-	postMessage(respuesta);
-}
