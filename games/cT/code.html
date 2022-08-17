@@ -26,9 +26,8 @@
 	<p id="1"></p>
 	<script>
 		function showTime() {
-			var time = new Date();
-			console.log(time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds());
-			document.getElementById("1").innerHTML = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+			var w;
+			w = new Worker("code.js");
 		}
 	</script>
 	<ul>
