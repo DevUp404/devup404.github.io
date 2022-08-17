@@ -18,7 +18,7 @@
 	<h1>Test &#x1F579;</h1>
 
 <hr>
-	<h2>Descripción del código:</h2>
+	<h2>Descripción del programa:</h2>
 	
 	<p>El siguiente programa iterará una serie de letras. Cuando el usuario presione el botón se añadirá la letra del momento a la lista.</p>
 	
@@ -31,6 +31,7 @@
 	<script>
 		var w;
 		var valor = "><";
+		var notRunning = "Error: el programa no ha sido ejecutado. Para capturar los caracteres presiones el botón \"Start!\";
 		
 		function start() {
 		  if(typeof(Worker) !== "undefined") {
@@ -46,8 +47,12 @@
 	   	  }
 		}
 		function catchValue() {
-		  var lista = document.getElementById("lista");
-		  lista.innerHTML = lista.innerHTML + "<li>" + valor + "</li>";
+		  if(typeof(w) == "undefined") {
+		    alert(notRunning);
+		  } else {
+		    var lista = document.getElementById("lista");
+		    lista.innerHTML = lista.innerHTML + "<li>" + valor + "</li>";
+		  }
 		}
 		function stop(){
 		  w.terminate();
