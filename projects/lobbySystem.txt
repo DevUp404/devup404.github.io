@@ -1,0 +1,24 @@
+Object-oriented.
+Incremental Development Proccess.
+
+V. 0.1.0-a
+
+Sistema de salas.
+
+Las salas son espacios dedicados al usuario. Su uso no está debidamente definifdo.
+Estas tienen una capacidad para alojar una cantidad predefinida de usuarios y modificable a lo largo de su instancia.
+Accesibilidad:
+  - Pública: Las salas con esta privacidad son accesibles y visibles por todos los usuarios del servidor.
+  - Privada: Solamente serán accesibles por los usuarios que tengan el nombre o id de la sala. No son visibles a todo el mundo.
+  - Protegida: Para ingresar el usuario debe ingresar una contraseña.
+  - Disponibilidad: Tiempo de vida de la sala desde su creación. Alcanzado lo estipulado la sala cerrará expulsando a todos los usuarios en ella.
+  
+  Congifuraciones:
+    - Nombre: Autogenerado o definido por administrador.
+    - Privacidad: pública, privada.
+    - Protegida: true, false. Si es "true" se considera el siguiente parámetro, de otra manera se ignora.
+    - Clave: "String".
+    - Disponibilidad: Por tiempo; Por estado, dependiente de si tiene usuarios o no.
+      // Si todos los usuarios abandonan la sala esta estará disponible por un tiempo (5 a 10 minutos). Si ningún usuario accede la misma es cerrada.
+      // Reciclación de salas: indefinido.
+    - Subsitemas: Juegos, chat y otros elementos de interacción.
