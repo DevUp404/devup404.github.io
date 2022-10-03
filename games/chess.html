@@ -43,7 +43,7 @@
 	let casillasBlancas = [61, 60, 62, 59, 58, 63, 49, 57, 64, 50, 51, 52, 53, 54, 55, 56];
 	let casillasNegras = [5, 4, 3, 6, 2, 7, 1, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 		
-	const blancas = {
+	const blancas = [
 		new Pieza("rey-white", 1, directorioRaiz),
 		new Pieza("reina-white", 2, directorioRaiz),
 		new Pieza("alfil-white", 5, directorioRaiz),
@@ -60,9 +60,9 @@
 		new Pieza("peon-white", 14, directorioRaiz),
 		new Pieza("peon-white", 15, directorioRaiz),
 		new Pieza("peon-white", 16, directorioRaiz),
-	};
+	];
 		
-	const negras = {
+	const negras = [
 		new Pieza("rey-black", 17, directorioRaiz),
 		new Pieza("reina-black", 18, directorioRaiz),
 		new Pieza("alfil-black", 21, directorioRaiz),
@@ -79,9 +79,9 @@
 		new Pieza("peon-black", 30, directorioRaiz),
 		new Pieza("peon-black", 31, directorioRaiz),
 		new Pieza("peon-black", 32, directorioRaiz),
-	};
+	];
 		
-	let drags = draggable= "\"true\" ondragstart=\"drag(event)\" id=\"drag1\" width=\"60\" height=\"60\"";
+	let drags = "draggable= \"true\" ondragstart=\"drag(event)\" id=\"drag1\" width=\"60\" height=\"60\"";
 	
 	// Creadores:
 	
