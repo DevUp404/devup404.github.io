@@ -165,7 +165,6 @@
 		
 		function colocar(piezas, casillas) {
 			let temp;
-			casillas.forEach(myFunction);
 			for (let i = 0; i < casillas.length; i++){
 				temp = document.getElementById("div" + casillas[i]);
 				temp.innerHTML = "<img src=" + piezas[i].imagen + " " + drags + ">";
