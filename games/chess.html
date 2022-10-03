@@ -21,7 +21,7 @@
     }
   </style>
 </head>
-<body onload="loadTable()">
+<body>
   <div>
     <table id="chessTab" style="margin: auto; border: 1px solid black; border-spacing: 0px;"></table>
   </div>
@@ -185,7 +185,7 @@
 		var data = ev.dataTransfer.getData("text");
 		ev.target.appendChild(document.getElementById(data));
 	}
-	
+	loadTable()
   </script>
 
 </script>
