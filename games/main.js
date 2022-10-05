@@ -67,7 +67,9 @@
 				
 				temp = document.getElementById("div" + casillas[i]);
 				let tempId ="drag" + casillas[i];
-				temp.innerHTML = "<img " + imgId + ' ' + imgSrc + ' ' + imgSize + ' ' + drags + '>';
+				temp.innerHTML = `<img ${imgId} ${imgSrc} ${imgSize} ${drags}>`;
+				//"<img " + imgId + ' ' + imgSrc + ' ' + imgSize + ' ' + drags + '>';
+				
 			}
 		}
 	  
