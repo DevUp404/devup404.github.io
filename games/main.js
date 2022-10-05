@@ -88,5 +88,35 @@
 		var data = ev.dataTransfer.getData("text");
 		ev.target.appendChild(document.getElementById(data));
 	}
+
+	function cambiarColor(idColor, selColorData) {
+		
+		if(!(idColor.length == 7 && idColor.startsWith('#'))) {
+			selColorData = 'undefined';
+		}
+		
+		if(selColorData == "blanco") {
+			blanco = idColor;
+		} else if (selColorData == "negro") {
+			negro = idColor;
+		}
+	}
+
+function extenderDoc() {
+	let inputDos = '<label for="oldColor">"Ingrese equipo a cambiar: "blanco" o "negro""</label><br><input type="text" id="oldColor"><br>'
+	let inputColorT = '<label for="fff">"Ingrese color (#nnnnnn; donde 'n' es desde '0' a 'f')"</label><br><input type="text" id="newColor"><br>'
+	let boton = "<button onClick="botonAction()" id="cambiar">Cambiar color<button>";
+	let hr = '<hr>';
+	let contenidoNuevo = `${hr} ${inputDos} ${inputColorT} ${boton}`;
+	document.getElementById("body").innerHTML += contenidoNuevo ;
+}
+
+function botonAction(){
+	let DesdeColor = document.getElementById("oldColor").value;
+	let nuevoColor = document.getElementById("newColor").value;
+	cambiarColor(nuevoColor, DesdeColor);
+}
 	loadTable();
 	addImg();
+	extenderDoc();
+	
