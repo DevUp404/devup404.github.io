@@ -9,6 +9,8 @@
 		
 	}
 	const directorioRaiz = "../media/chess/";
+	let blanco = "white";
+	let negro = "black";
 	let casillasBlancas = [61, 60, 62, 59, 58, 63, 64, 57, 49, 50, 51, 52, 53, 54, 55, 56];
 	let casillasNegras = [5, 4, 3, 6, 2, 7, 1, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 		
