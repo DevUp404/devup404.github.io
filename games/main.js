@@ -112,9 +112,9 @@ function extenderDoc() {
 }
 
 function botonAction(){
-	let DesdeColor = document.getElementById("oldColor").value;
+	let desdeColor = document.getElementById("oldColor").value;
 	let nuevoColor = document.getElementById("newColor").value;
-	cambiarColor(nuevoColor, DesdeColor);
+	cambiarColor(nuevoColor, desdeColor);
 }
 	loadTable();
 	addImg();
