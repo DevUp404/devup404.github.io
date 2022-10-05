@@ -105,7 +105,7 @@
 function extenderDoc() {
 	let inputDos = '<label for="oldColor">"Ingrese equipo a cambiar: "blanco" o "negro""</label><br><input type="text" id="oldColor"><br>'
 	let inputColorT = '<label for="fff">"Ingrese color (#nnnnnn; donde \'n\' es desde \'0\' a \'f\')"</label><br><input type="text" id="newColor"><br>'
-	let boton = "<button onClick="botonAction()" id="cambiar">Cambiar color<button>";
+	let boton = '<button onClick="botonAction()" id="cambiar">Cambiar color<button>';
 	let hr = '<hr>';
 	let contenidoNuevo = `${hr} ${inputDos} ${inputColorT} ${boton}`;
 	document.getElementById("body").innerHTML += contenidoNuevo ;
