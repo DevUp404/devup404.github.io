@@ -33,9 +33,9 @@ function createRows() {
 		var contador = 1;
         for(var i = 0; i < 8; i++) {
 			if (i % 2 == 0) {
-				tableRows[i] = createRow("white", "black", contador);
+				tableRows[i] = createRow(blanco, negro, contador);
 			} else {
-				tableRows[i] = createRow("black", "white", contador);
+				tableRows[i] = createRow(negro, blanco, contador);
 			}
 			contador += 8;
         }
