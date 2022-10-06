@@ -70,8 +70,6 @@
 				temp = document.getElementById("div" + casillas[i]);
 				let tempId ="drag" + casillas[i];
 				temp.innerHTML = `<img ${imgId} ${imgSrc} ${imgSize} ${drags}>`;
-				//"<img " + imgId + ' ' + imgSrc + ' ' + imgSize + ' ' + drags + '>';
-				
 			}
 		}
 	  
@@ -103,20 +101,32 @@
 	}
 
 function extenderDoc() {
-	let inputDos = '<label for="oldColor">"Ingrese equipo a cambiar: "blanco" o "negro""</label><br><input type="text" id="oldColor"><br>'
+	let inputDos = '<label for="oldColor">"Ingrese equipo a cambiar: "white" o "black""</label><br><input type="text" id="oldColor"><br>'
 	let inputColorT = '<label for="fff">"Ingrese color (#nnnnnn; donde \'n\' es desde \'0\' a \'f\')"</label><br><input type="text" id="newColor"><br>'
-	let boton = '<button onClick="botonAction()" id="cambiar">Cambiar color<button>';
+	let boton = '<button onClick="botonAction()" id="cambiar">Cambiar color</button>';
 	let hr = '<hr>';
 	let contenidoNuevo = `${hr} ${inputDos} ${inputColorT} ${boton}`;
 	document.getElementById("body").innerHTML += contenidoNuevo ;
+}
+
+function pintarCasilla(color, clase) {
+	let casillas = document.getElementsByClassName(clase);
+	for(let i = 0; i < casillas.length; i++) {
+		casillas[i].style.backgroundColor = color;
+	}
 }
 
 function botonAction(){
 	let desdeColor = document.getElementById("oldColor").value;
 	let nuevoColor = document.getElementById("newColor").value;
 	cambiarColor(nuevoColor, desdeColor);
+	pintarCasilla(nuevoColor, desdeColor);
 }
-	loadTable();
-	addImg();
-	extenderDoc();
+
+loadTable();
+addImg();
+extenderDoc();
+pintarCasilla("#3399ff", "white");
+pintarCasilla("#ff00ff", "black");
+
 	
