@@ -1,17 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="description" content="content">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<title>Chess game test</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="content">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="classStyle.css">
+  <link rel="stylesheet" href="identifierStyle.css">
+  <style>body {}</style>
+  <title>Chess game test</title>
 </head>
-<body id="cuerpo">
-
-	<p id="par">WriteYourContentHere</p>
-	<script src="pad.js"></script>
-	<script src="main.js"></script>
+<body id="cuerpo" onload="ajustarCuerpo()">
+<script>//document.getElementById("cuerpo").style.height = window.innerHeight - 20 + 'px';</script>
+  <div id="divBox" class="box">
+    <div id="imgContainer"><img src="img/title.png" alt="titulo" style="margin: auto;border-collapse: collapse; width: 60%;"></div>
+    <div id ="spacer" class="separador"></div>
+    <div id="bPad" class="box" style="width: 40%;">
+    
+    <div id="d1" class="fila top"><!--button id="but1" class="pad">Iniciar partida</button--></div>
+    
+    <div id="d2" class="fila"><!--button id="but2" class="pad">Analizar partida</button--></div>
+    
+    <div id="d3" class="fila"><!--button id="but3" class="pad">Reglas</button--></div>
+    
+    <div id="d4" class="fila"><!--button id="but4" class="pad">Opciones</button--></div>
+    
+    <div id="d5" class="fila bottom"><!--button id="but5" class="pad">Ayuda</button--></div>
+    
+  </div>
+  </div>
+<div style="margin: auto;"><p style="font-size: 10px;margin: auto;">Version Alpha-0.1</p></div>
+  <script src="builder.js"></script>
+  <script>
+    function ajustarCuerpo() {document.getElementById("cuerpo").style.height = window.innerHeight - 20 + 'px';}
+    placeElements();
+    window.addEventListener("resize", ajustar);
+    function ajustar() {
+      document.getElementById("cuerpo").style.height = window.innerHeight - 20 + 'px';
+    }
+    document.getElementById("but1").onclick = getLeft;
+    function getLeft() {
+      let main = document.getElementById("divBox");
+      let used = [
+        document.getElementById("imgContainer"),
+        document.getElementById("spacer"),
+        document.getElementById("bPad")
+      ];
+      let total;
+      total += used.forEach(sum);
+      alert(total);
+      
+    }
+    function sum(valor){
+      return valor.style.height;
+    }
+  </script>
 
 </body>
 </html>
