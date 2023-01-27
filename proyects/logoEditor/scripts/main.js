@@ -10,6 +10,16 @@
 		canvas.style.backgroundColor = '#888'
 		canvas.style.border = '1px solid black'
 		
+		// Buttons setting
+		buttons[0].setAttribute('onclick', 'render(circleBox)')
+		buttons[0].innerHTML = 'Draw circle'
+		buttons[1].setAttribute('onclick', 'render(squareBox)')
+		buttons[1].innerHTML = 'Draw square'
+		buttons[2].setAttribute('onclick', 'render(rectBox)')
+		buttons[2].innerHTML = 'Draw rectangle'
+		buttons[3].setAttribute('onclick', `downloadCanvas('canvasImage', 'png')`)
+		buttons[3].innerHTML = 'Download Image'
+
 		// Appending elements
 		div.appendChild(canvas)
 		document.body.appendChild(div)
@@ -18,6 +28,9 @@
 		document.body.appendChild(buttons[1])
 		document.body.appendChild(buttons[2])
 		document.body.appendChild(buttons[3])
+		
+		var imagen = insertarImagen('Prototipo-corona.png')
+
 		// Colores:
 		var goldColor = '#ffd700'
 		var whiteColor = '#ffffff'
