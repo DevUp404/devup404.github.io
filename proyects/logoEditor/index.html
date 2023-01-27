@@ -1,1 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="content">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--	<link rel="stylesheet" href="style/style_one.css"> -->
+	<title>Logo builder - Canvas</title>
+</head>
+<body>
+	<script>
+		// Elements declaration
+		let div = document.createElement('div')
+		let canvas = document.createElement('canvas')
+		let ctx = canvas.getContext('2d')
+		//canvas.width = window.innerWidth - 20
+		//canvas.height = window.innerHeight - 20
+		canvas.width = 512
+		canvas.height = 512
+		canvas.style.backgroundColor = '#888'
+		canvas.style.border = '1px solid black'
+		div.appendChild(canvas)
+		document.body.appendChild(div)
+		let buttons = [document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button')]
+		document.body.appendChild(document.createElement('hr'))
+		document.body.appendChild(buttons[0])
+		document.body.appendChild(buttons[1])
+		document.body.appendChild(buttons[2])
+		document.body.appendChild(buttons[3])
+		// Colores:
+		var goldColor = '#ffd700'
+		var whiteColor = '#ffffff'
+		var blackColor = '#000000'
 
+		// Define logos
+		var textoA = 'Azul'
+		var textoB = '31-01-23'
+		var textoC = 'Mi 1er añito'
+	</script>
+	<script src="canvasBuilder.js"></script>
+	<script>
+		function downloadCanvas(name = 'canvasImage', extension = 'png') {
+			var a = document.createElement('a');
+			a.href = canvas.toDataURL('image/png');
+			a.download = `${name}.${extension}`;
+			document.body.appendChild(a);
+			a.click();
+		}
+	
+		function render(shape) {
+			// Re-size canvas
+			canvas.width = shape.width
+			canvas.height = shape.height
+			clearCanvas()
+			drawLogo(ctx, shape, wall, imagen, dimRef)
+		}
+		
+		//shape -> 1: circle.arc().background().insertLogo().writeText()
+		function drawLogo(ctx, shape, background, image, dimRef) {
+			clearCanvas()
+			ctx.canvas.width = shape.width
+			ctx.canvas.height = shape.height
+			ctx.save() // Save the state of context render before to change it
+			
+			// Setting ctx values from dimRef
+			//ctx.beginPath()
+			ctx.lineWidth = dimRef.lineWidth
+			ctx.fillStyle = dimRef.fillStyle
+			ctx.strokeStyle = dimRef.strokeStyle
+			
+			ctx.font = "48px cursive";
+			ctx.textAlign = 'center'
+			
+			if(shape.type === 'circle') {
+				var radio = shape.width/2
+				ctx.arc(shape.origin[0] + radio, shape.origin[1] + radio, radio, 0, Math.PI*2)
+				ctx.clip()
+				background.draw(shape.origin[0], shape.origin[1], shape.width, shape.width)
+				ctx.beginPath()
+				
+				// Add image
+				var rel = 2
+				var x = shape.origin[0] + (shape.width / 2 - (image.width / rel) / 2)
+				var y = shape.origin[0] + (shape.width / 2 - (image.height / rel) / 2)
+				ctx.drawImage(image, x, y, image.width / rel, image.height / rel)
+				
+				// Add texto
+				ctx.fillStyle = 'blue'
+				x = shape.origin[0] + shape.width/2
+				y = shape.origin[1] + shape.width/100* 15 // Proporcion
+				ctx.fillText(textoA, x, y);
+				ctx.fillText(textoB, x, shape.origin[1] + shape.width*0.9);
+				
+				ctx.beginPath()
+				ctx.arc(shape.origin[0] + radio, shape.origin[1] + radio, radio-ctx.lineWidth/2, 0, Math.PI*2)
+				ctx.stroke()
+			} else if(shape.type === 'square') {
+				ctx.rect(shape.origin[0], shape.origin[1], shape.width, shape.width)
+				ctx.clip()
+				
+				background.draw(shape.origin[0], shape.origin[1], shape.width, shape.width)
+				
+				// Add image
+				var rel = 2
+				var x = shape.origin[0] + (shape.width / 2 - (image.width / rel) / 2)
+				var y = shape.origin[0] + (shape.width / 2 - (image.height / rel) / 2)
+				ctx.drawImage(image, x, y, image.width / rel, image.height / rel)
+				
+				// Add texto
+				
+				ctx.fillStyle = 'blue'
+				x = shape.origin[0] + shape.width/2
+				y = shape.origin[1] + shape.width/100* 15 // Proporcion
+				ctx.fillText(textoA, x, y);
+				ctx.fillText(textoB, x, shape.origin[1] + shape.width*0.9);
+				
+				ctx.beginPath()
+				ctx.rect(shape.origin[0]+ctx.lineWidth/2, shape.origin[1]+ctx.lineWidth/2, shape.width-ctx.lineWidth, shape.width-ctx.lineWidth)
+				ctx.stroke()
+			} else if(shape.type === 'rectangle') {
+				
+				ctx.rect(shape.origin[0], shape.origin[1], shape.width, shape.height)
+				ctx.clip()
+				
+				background.draw(shape.origin[0], shape.origin[1], shape.width, shape.height)
+				
+				// Add image
+				var rel = 3.3
+				var x = shape.origin[0] + (shape.width / 2 - (image.width / rel) / 2)
+				var y = shape.origin[0] + (shape.height / 2 - (image.height / rel) / 2)
+				ctx.drawImage(image, x, y, image.width / rel, image.height / rel)
+				
+				// Add texto
+				ctx.font = "38px serif";
+				ctx.fillStyle = 'blue'
+				ctx.fillText(textoA, shape.origin[0] + shape.width/2 , shape.height - y/2);
+				x = shape.origin[1] + shape.width/100* 20
+				y = shape.origin[0] + shape.height/2 +20 // Proporcion
+				ctx.fillText(textoC, x, y);
+				ctx.fillText(textoB, shape.origin[1] + shape.width/100* 85 , y);
+				
+				
+				ctx.beginPath()
+				ctx.rect(shape.origin[0]+ctx.lineWidth/2, shape.origin[1]+ctx.lineWidth/2, shape.width-ctx.lineWidth, shape.height-ctx.lineWidth)
+				ctx.stroke()
+			} else {return null}
+			ctx.closePath()
+			ctx.restore()
+		}
+		
+		// Draw circle logo * Lately, add parameters to custom logo: diametro, marcoWidth, imgSize, img
+		function drawCircle(diametro, marcoWidth) {
+			ctx.save()
+			// Dibuja logo circular
+			var x = 0
+			var y = 0
+			var radio = diametro/2
+			ctx.beginPath()
+			ctx.strokeStyle = goldColor
+			ctx.lineWidth = marcoWidth
+			ctx.arc(radio + x, radio + y, radio - ctx.lineWidth / 2, 0, 2 * Math.PI)
+			ctx.stroke()
+			ctx.clip()
+
+			drawDottedWall()
+			drawLinedWall(5, 5+(512-(512*40/100)), 512, (512*40/100))
+			ctx.restore()
+			ctx.beginPath()
+
+			var rel = 2
+			x = (512 / 2 - (imagen.width / rel) / 2)
+			y = (512 / 2 - (imagen.height / rel) / 2)
+			ctx.drawImage(imagen, x, y, imagen.width / rel, imagen.height / rel)
+
+			ctx.beginPath()
+			ctx.textAlign = 'center'
+			ctx.font = '35px serif'
+			ctx.fillText(textoC,256, 100)
+			ctx.fillText(textoA, 256, 450)
+		}
+		
+		function drawSquare() {
+			clearCanvas()
+			ctx.save()
+			ctx.strokeStyle = goldColor
+			ctx.lineWidth = 15
+			let size = 512
+			ctx.beginPath()
+			ctx.rect(0, 0, size, size)
+			ctx.stroke()
+			ctx.clip()
+			drawDottedWall()
+			drawLinedWall(0, size - (size/100*40), size, size)
+			
+			ctx.rect(0, 0, size, size)
+			ctx.stroke()
+		}
+		
+		function drawRectangle() {alert('drawRectangle')}
+		
+		function clearCanvas() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height)
+		}
+		
+		var imagen = insertarImagen('Prototipo-corona.png')
+		
+		let circleBox = {type: 'circle', origin: [0, 0], width: 512, height: 512}
+		let squareBox = {type: 'square', origin: [0, 0], width: 512, height: 512}
+		let rectBox = {type: 'rectangle', origin: [0, 0], width: 1024, height: 256}
+		
+		let wall = {
+			context: ctx,
+			draw: function(x, y, width, height) {
+				this.context.save()
+				this.context.beginPath()
+				this.drawDottedWall(x, y, width, height)
+				this.drawLinedWall(x+5, y+5+(height-(height*40/100)), width, (height*40/100))
+				this.context.closePath()
+				this.context.restore()
+			},
+			drawDottedWall: function(x, y, width, height) {
+				this.context.save()
+				this.fillWall(x, y, width, height, '#FFB6C1')
+				// Draw a dots line set
+				x = 0
+				y = 5
+				altura = 15
+				longitud = 30
+				for (let i = 0; y < height; y += altura) {
+					// Draw a dots line
+					x = (i++ % 2 === 0) ? longitud : longitud / 2
+					longitud = 30
+					this.drawDottedLine(x, y, width, longitud)
+				}
+				this.context.restore()
+			},
+			drawLinedWall: function(x, y, width, height) {
+				this.context.save()
+				// Set context values
+				this.context.fillStyle = '#ffffff'
+				this.context.strokeStyle = '#ffd700'
+				this.context.lineWidth = 10
+				
+				// Fill the background
+				this.context.fillRect(x, y, width, height)
+				  
+				// Draw band horizontal
+				this.context.beginPath()
+				this.context.moveTo(x, y)
+				this.context.lineTo(x+width, y)
+				this.context.stroke()
+				  
+				// Draw vertical lines
+				var lx = x + 5
+				this.context.lineWidth = 3
+				var longitud = 18
+				for (; lx < width; lx += longitud) {
+					this.context.moveTo(lx, y)
+					this.context.lineTo(lx, y+height)
+				}
+				this.context.stroke()
+				this.context.restore()
+			},
+			drawDottedLine: function(x, y, width, lineLength) {
+				for (; x < width; x += lineLength) {
+					this.drawDot(x, y, '#ffffff')
+				}
+			},
+			fillWall: function(x, y, width, height, color) {
+				this.context.save()
+				// Fill wall on pink
+				this.context.rect(x, y, x+width, y+height)
+				this.context.fillStyle = color
+				this.context.fill()
+				this.context.restore()
+			},
+			drawDot: function(x, y, color) {
+				this.context.save()
+				// Draw a dot
+				this.context.beginPath()
+				this.context.arc(x, y, 2, 0, 2 * Math.PI)
+				this.context.fillStyle = color
+				this.context.fill()
+				this.context.restore()
+			}
+		}
+		
+		let dimRef = {
+			lineWidth: 15,
+			fillStyle: whiteColor,
+			strokeStyle: goldColor}
+		
+		//drawLogo(ctx, squareBox, wall, dimRef)
+		
+		buttons[0].setAttribute('onclick', 'render(circleBox)')
+		buttons[0].innerHTML = 'Draw circle'
+		buttons[1].setAttribute('onclick', 'render(squareBox)')
+		buttons[1].innerHTML = 'Draw square'
+		buttons[2].setAttribute('onclick', 'render(rectBox)')
+		buttons[2].innerHTML = 'Draw rectangle'
+		buttons[3].setAttribute('onclick', `downloadCanvas('canvasImage', 'png')`)
+		buttons[3].innerHTML = 'Download Image'
+		
+	</script>
+
+</body>
+</html>
