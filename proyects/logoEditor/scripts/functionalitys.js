@@ -42,8 +42,8 @@ function drawLogo(ctx, shape, background, image, dimRef) {
 
 		// Add texto
 		ctx.fillStyle = 'blue'
-		x = shape.origin[0] + shape.width / 2
-		y = shape.origin[1] + shape.width / 100 * 15 // Proporcion
+		var x = shape.origin[0] + shape.width / 2
+		var y = shape.origin[1] + shape.width / 100 * 15 // Proporcion
 		ctx.fillText(textName, x, y);
 		ctx.fillText(textDate, x, shape.origin[1] + shape.width * 0.9);
 
