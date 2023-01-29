@@ -45,8 +45,8 @@ function drawLogo(ctx, shape, background, image, dimRef) {
 		ctx.fillStyle = 'blue'
 		x = shape.origin[0] + shape.width / 2
 		y = shape.origin[1] + shape.width / 100 * 15 // Proporcion
-		ctx.fillText(textoA, x, y);
-		ctx.fillText(textoB, x, shape.origin[1] + shape.width * 0.9);
+		ctx.fillText(textName, x, y);
+		ctx.fillText(textDate, x, shape.origin[1] + shape.width * 0.9);
 
 		ctx.beginPath()
 		ctx.arc(shape.origin[0] + radio, shape.origin[1] + radio, radio - ctx.lineWidth / 2, 0, Math.PI * 2)
@@ -65,8 +65,8 @@ function drawLogo(ctx, shape, background, image, dimRef) {
 		ctx.fillStyle = 'blue'
 		x = shape.origin[0] + shape.width / 2
 		y = shape.origin[1] + shape.width / 100 * 15 // Proporcion
-		ctx.fillText(textoA, x, y);
-		ctx.fillText(textoB, x, shape.origin[1] + shape.width * 0.9);
+		ctx.fillText(textName, x, y);
+		ctx.fillText(textDate, x, shape.origin[1] + shape.width * 0.9);
 
 		ctx.beginPath()
 		ctx.rect(shape.origin[0] + ctx.lineWidth / 2, shape.origin[1] + ctx.lineWidth / 2, shape.width - ctx.lineWidth, shape.width - ctx.lineWidth)
@@ -84,11 +84,11 @@ function drawLogo(ctx, shape, background, image, dimRef) {
 		// Add texto
 		ctx.font = "38px serif";
 		ctx.fillStyle = 'blue'
-		ctx.fillText(textoA, shape.origin[0] + shape.width / 2, shape.height - y / 2);
+		ctx.fillText(textName, shape.origin[0] + shape.width / 2, shape.height - y / 2);
 		x = shape.origin[1] + shape.width / 100 * 20
 		y = shape.origin[0] + shape.height / 2 + 20 // Proporcion
-		ctx.fillText(textoC, x, y);
-		ctx.fillText(textoB, shape.origin[1] + shape.width / 100 * 85, y);
+		ctx.fillText(textLegend, x, y);
+		ctx.fillText(textDate, shape.origin[1] + shape.width / 100 * 85, y);
 
 
 		ctx.beginPath()

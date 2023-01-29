@@ -87,9 +87,9 @@ function insertTextField(inputID, inputValue, nodeParent) {
 }
 
 function updateTextValues(t1, t2, t3) {
-    textoA = t1.value
-    textoB = t2.value
-    textoC = t3.value
+    textName = t1.value
+    textDate = t2.value
+    textLegend = t3.value
 }
 
 function updateColorValues(c1, c2) {

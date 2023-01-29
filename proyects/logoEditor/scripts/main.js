@@ -39,11 +39,11 @@ elementoVar.innerHTML = 'Configuracion de parametros'
 document.body.appendChild(elementoVar)
 document.body.appendChild(document.createElement('br'))
 
-var textNodeA = insertTextField('83', 'Azul', document.body)[1]
+var textNodeA = insertTextField('83', 'nombre', document.body)[1]
 document.body.appendChild(document.createElement('br'))
-var textNodeB = insertTextField('84', 'Mi 1er añito', document.body)[1]
+var textNodeB = insertTextField('84', 'Leyenda...', document.body)[1]
 document.body.appendChild(document.createElement('br'))
-var textNodeC = insertTextField('85', '31-01-23', document.body)[1]
+var textNodeC = insertTextField('85', '00-00-00', document.body)[1]
 document.body.appendChild(document.createElement('br'))
 
 // New button
