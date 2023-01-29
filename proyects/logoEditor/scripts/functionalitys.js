@@ -39,7 +39,7 @@ function drawLogo(ctx, shape, background, image, dimRef) {
 		ctx.beginPath()
 
 		// Add image
-		addImage(image, shape.origin[0], shape.origin[1], shape.width, shape.height, 3.3)
+		addImage(image, shape.origin[0], shape.origin[1], shape.width, shape.height, 2)
 
 		// Add texto
 		ctx.fillStyle = 'blue'
@@ -58,7 +58,7 @@ function drawLogo(ctx, shape, background, image, dimRef) {
 		background.draw(shape.origin[0], shape.origin[1], shape.width, shape.width)
 
 		// Add image
-		addImage(image, shape.origin[0], shape.origin[1], shape.width, shape.height, 3.3)
+		addImage(image, shape.origin[0], shape.origin[1], shape.width, shape.height, 2)
 
 		// Add texto
 
