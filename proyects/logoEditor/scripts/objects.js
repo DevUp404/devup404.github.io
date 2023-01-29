@@ -6,6 +6,7 @@ let circleBox = {type: 'circle', origin: [0, 0], width: 512, height: 512}
 		
 		let wall = {
 			context: ctx,
+			colors: ['#FF55C1', '#f56fff', '#f23700'], // Original array: ['#FFB6C1', '#ffffff', '#ffd700']
 			draw: function(x, y, width, height) {
 				this.context.save()
 				this.context.beginPath()
@@ -16,7 +17,7 @@ let circleBox = {type: 'circle', origin: [0, 0], width: 512, height: 512}
 			},
 			drawDottedWall: function(x, y, width, height) {
 				this.context.save()
-				this.fillWall(x, y, width, height, '#FFB6C1')
+				this.fillWall(x, y, width, height, this.colors[0])
 				// Draw a dots line set
 				x = 0
 				y = 5
@@ -33,8 +34,8 @@ let circleBox = {type: 'circle', origin: [0, 0], width: 512, height: 512}
 			drawLinedWall: function(x, y, width, height) {
 				this.context.save()
 				// Set context values
-				this.context.fillStyle = '#ffffff'
-				this.context.strokeStyle = '#ffd700'
+				this.context.fillStyle = this.colors[1]// Originally: '#ffffff'
+				this.context.strokeStyle = this.colors[2]// Originally: '#ffd700'
 				this.context.lineWidth = 10
 				
 				// Fill the background
@@ -59,7 +60,7 @@ let circleBox = {type: 'circle', origin: [0, 0], width: 512, height: 512}
 			},
 			drawDottedLine: function(x, y, width, lineLength) {
 				for (; x < width; x += lineLength) {
-					this.drawDot(x, y, '#ffffff')
+					this.drawDot(x, y, this.colors[1])
 				}
 			},
 			fillWall: function(x, y, width, height, color) {

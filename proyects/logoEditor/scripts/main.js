@@ -5,8 +5,8 @@
 		let buttons = [document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button')]
 		
 		// Canvas setting
-		canvas.width = window.innerWidth - 20
-		canvas.height = window.innerHeight - 20
+		canvas.width = window.innerWidth - 30
+		canvas.height = window.innerHeight - 30
 		canvas.style.backgroundColor = '#888'
 		canvas.style.border = '1px solid black'
 		
@@ -19,6 +19,7 @@
 		buttons[2].innerHTML = 'Draw rectangle'
 		buttons[3].setAttribute('onclick', `downloadCanvas('canvasImage', 'png')`)
 		buttons[3].innerHTML = 'Download Image'
+	
 
 		// Appending elements
 		div.appendChild(canvas)
@@ -30,13 +31,40 @@
 		document.body.appendChild(buttons[3])
 		
 		var imagen = insertarImagen('Prototipo-corona.png')
-
-		// Colores:
-		var goldColor = '#ffd700'
-		var whiteColor = '#ffffff'
-		var blackColor = '#000000'
-
-		// Define logos
-		var textoA = 'Azul'
-		var textoB = '31-01-23'
-		var textoC = 'Mi 1er añito'
+		
+		document.body.appendChild(document.createElement('hr'))
+		document.body.appendChild(document.createElement('br'))
+		let elementoVar = document.createElement('p')
+		elementoVar.innerHTML = 'Configuracion de parametros'
+		document.body.appendChild(elementoVar)
+		document.body.appendChild(document.createElement('br'))
+		
+		var textNodeA = insertTextField('83', 'Azul', document.body)[1]
+		document.body.appendChild(document.createElement('br'))
+		var textNodeB = insertTextField('84', 'Mi 1er añito', document.body)[1]
+		document.body.appendChild(document.createElement('br'))
+		var textNodeC = insertTextField('85', '31-01-23', document.body)[1]
+		document.body.appendChild(document.createElement('br'))
+		
+		// New button
+		buttons.push(document.createElement('button'))
+		buttons[buttons.length-1].setAttribute('onclick', 'updateTextValues(textNodeA, textNodeB, textNodeC)')
+		buttons[buttons.length-1].innerHTML = 'Actualizar valores'
+		document.body.appendChild(buttons[buttons.length-1])
+		
+		// To modify colors
+		document.body.appendChild(document.createElement('br'))
+		elementoVar = document.createElement('p')
+		elementoVar.innerHTML = 'Configuracion de parametros para colores'
+		document.body.appendChild(elementoVar)
+		document.body.appendChild(document.createElement('br'))
+		
+		var colorNodeA = insertTextField('86', 'red', document.body)[1]
+		document.body.appendChild(document.createElement('br'))
+		var colorNodeB = insertTextField('87', '#fff', document.body)[1]
+		document.body.appendChild(document.createElement('br'))
+		// New button
+		buttons.push(document.createElement('button'))
+		buttons[buttons.length-1].setAttribute('onclick', 'updateColorValues(colorNodeA, colorNodeB)')
+		buttons[buttons.length-1].innerHTML = 'Actualizar colores'
+		document.body.appendChild(buttons[buttons.length-1])

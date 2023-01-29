@@ -18,7 +18,6 @@ function downloadCanvas(name = 'canvasImage', extension = 'png') {
 		
 		//shape -> 1: circle.arc().background().insertLogo().writeText()
 		function drawLogo(ctx, shape, background, image, dimRef) {
-			clearCanvas()
 			ctx.canvas.width = shape.width
 			ctx.canvas.height = shape.height
 			ctx.save() // Save the state of context render before to change it

@@ -69,3 +69,30 @@ function drawLinedWall(x, y, width, height) {
   }
   ctx.stroke()
 }
+
+		// Text fields for arguments pass
+		function insertTextField(inputID, inputValue, nodeParent){
+			let oLabel = document.createElement('label')
+			oLabel.setAttribute('for', inputID)
+			let oInput = document.createElement('input')
+			oInput.setAttribute('id', inputID)
+			oInput.setAttribute('type', 'text')
+			oInput.setAttribute('value', inputValue)
+			//oInput.setAttribute('name', inputName)
+			
+			nodeParent.appendChild(oLabel)
+			nodeParent.appendChild(oInput)
+			
+			return [oLabel, oInput]
+		}
+		
+function updateTextValues(t1, t2, t3) {
+	textoA = t1.value
+	textoB = t2.value
+	textoC = t3.value
+}
+
+function updateColorValues(c1, c2) {
+	wall.colors[0] = c1.value
+	wall.colors[1] = c2.value
+}
