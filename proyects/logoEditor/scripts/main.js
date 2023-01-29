@@ -1,3 +1,17 @@
+/*
+Colores comunes:
+	- Contorno
+	- Fondos
+	- Textos
+	- Más...
+Otros:
+	- Fuentes
+	- Valores
+	- Posiciones
+	- Capas
+	- Secuencia de dibujado (orden dinámico editable)
+*/
+
 // Elements declaration
 let div = document.createElement('div')
 let canvas = document.createElement('canvas')
