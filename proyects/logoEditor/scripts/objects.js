@@ -3,7 +3,7 @@
 let circleBox = { type: 'circle', origin: [0, 0], width: 512, height: 512,
 	draw: function (ctx) {
 		var radio = this.width / 2
-		ctx.arc(this.origin[0] + radio, this.origin[y] + radio, radio, 0, 2*Math.PI)}
+		ctx.arc(this.origin[0] + radio, this.origin[1] + radio, radio, 0, 2*Math.PI)}
 }
 let squareBox = { type: 'square', origin: [0, 0], width: 512, height: 512,
 	draw: function (ctx) {ctx.rect(this.origin[0], this.origin[1], this.width, this.width)}
