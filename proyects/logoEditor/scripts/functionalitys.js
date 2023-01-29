@@ -31,11 +31,10 @@ function drawLogo(ctx, shape, background, image, dimRef) {
 	ctx.font = "48px cursive";
 	ctx.textAlign = 'center'
 
-	if (shape.type === 'circle') {
-		var radio = shape.width / 2
-		ctx.arc(shape.origin[0] + radio, shape.origin[1] + radio, radio, 0, Math.PI * 2)
+	// New mod. until net block comment...
+	shape.draw(ctx)
 		ctx.clip()
-		background.draw(shape.origin[0], shape.origin[1], shape.width, shape.width)
+		background.draw(shape.origin[0], shape.origin[1], shape.width, shape.height)
 		ctx.beginPath()
 
 		// Add image
@@ -49,10 +48,29 @@ function drawLogo(ctx, shape, background, image, dimRef) {
 		ctx.fillText(textDate, x, shape.origin[1] + shape.width * 0.9);
 
 		ctx.beginPath()
-		ctx.arc(shape.origin[0] + radio, shape.origin[1] + radio, radio - ctx.lineWidth / 2, 0, Math.PI * 2)
+		shape.draw(ctx)
+		ctx.stroke()
+/*	if (shape.type === 'circle') {
+		shape.draw(ctx)
+		ctx.clip()
+		background.draw(shape.origin[0], shape.origin[1], shape.width, shape.height)
+		ctx.beginPath()
+
+		// Add image
+		addImage(image, shape.origin[0], shape.origin[1], shape.width, shape.height, 2)
+
+		// Add texto
+		ctx.fillStyle = 'blue'
+		x = shape.origin[0] + shape.width / 2
+		y = shape.origin[1] + shape.width / 100 * 15 // Proporcion
+		ctx.fillText(textName, x, y);
+		ctx.fillText(textDate, x, shape.origin[1] + shape.width * 0.9);
+
+		ctx.beginPath()
+		shape.draw(ctx)
 		ctx.stroke()
 	} else if (shape.type === 'square') {
-		ctx.rect(shape.origin[0], shape.origin[1], shape.width, shape.width)
+		shape.draw(ctx)
 		ctx.clip()
 
 		background.draw(shape.origin[0], shape.origin[1], shape.width, shape.width)
@@ -82,7 +100,6 @@ function drawLogo(ctx, shape, background, image, dimRef) {
 		addImage(image, shape.origin[0], shape.origin[1], shape.width, shape.height, 3.3)
 
 		// Add texto
-		ctx.font = "38px serif";
 		ctx.fillStyle = 'blue'
 		ctx.fillText(textName, shape.origin[0] + shape.width / 2, shape.height - y / 2);
 		x = shape.origin[1] + shape.width / 100 * 20
@@ -94,7 +111,7 @@ function drawLogo(ctx, shape, background, image, dimRef) {
 		ctx.beginPath()
 		ctx.rect(shape.origin[0] + ctx.lineWidth / 2, shape.origin[1] + ctx.lineWidth / 2, shape.width - ctx.lineWidth, shape.height - ctx.lineWidth)
 		ctx.stroke()
-	} else { return null }
+	} else { return null }*/
 	ctx.closePath()
 	ctx.restore()
 }

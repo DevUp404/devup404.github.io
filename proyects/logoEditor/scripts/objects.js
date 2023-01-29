@@ -1,8 +1,16 @@
 // Objects...
 
-let circleBox = { type: 'circle', origin: [0, 0], width: 512, height: 512 }
-let squareBox = { type: 'square', origin: [0, 0], width: 512, height: 512 }
-let rectBox = { type: 'rectangle', origin: [0, 0], width: 1024, height: 256 }
+let circleBox = { type: 'circle', origin: [0, 0], width: 512, height: 512,
+	draw: function (ctx) {
+		var radio = this.width / 2
+		ctx.arc(this.origin[0] + radio, this.origin[y] + radio, radio, 0, 2*Math.PI)}
+}
+let squareBox = { type: 'square', origin: [0, 0], width: 512, height: 512,
+	draw: function (ctx) {ctx.rect(this.origin[0], this.origin[1], this.width, this.width)}
+}
+let rectBox = { type: 'rectangle', origin: [0, 0], width: 1024, height: 256,
+	draw: function (ctx) {ctx.rect(this.origin[0], this.origin[1], this.width, this.height)}
+}
 
 let wall = {
 	context: ctx,
