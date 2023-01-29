@@ -104,7 +104,7 @@ function addImage(image, x, y, width, height, rel = 3.3) {
 	// return the origin coords for the sub-area.
 	var cX = x + (width / 2 - (image.width / rel) / 2)
 	var cY = y + (height / 2 - (image.height / rel) / 2)
-	ctx.drawImage(image, cX, xY, image.width / rel, image.height / rel)
+	ctx.drawImage(image, cX, cY, image.width / rel, image.height / rel)
 }
 
 function clearCanvas() {
