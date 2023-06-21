@@ -10,7 +10,8 @@ async function getOnlineFile(requestURL) {
 }
 
 // Usage
-let fileText = getOnlineFile("https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json")
+let fileText = 0
+getOnlineFile("https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json").then(text => s = fileText)
 let objectFromRequest = JSON.parse(fileText);
 
 // Object to json
