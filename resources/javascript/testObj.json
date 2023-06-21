@@ -1,0 +1,1 @@
+{"name":"Elias Pedro Lopez Casin", "localidad":"Mar del plata","edad":"26","toString":"return `${name} from ${localidad} is ${edad} yo.`"}
